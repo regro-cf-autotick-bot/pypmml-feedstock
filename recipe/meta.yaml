@@ -1,5 +1,5 @@
 {% set name = "pypmml" %}
-{% set version = "0.9.11" %}
+{% set version = "0.9.12" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pypmml-{{ version }}.tar.gz
-  sha256: 7ce234c86495c525b69f39e29934f87ad895d2a92d194b312c28b7e1f9694479
+  sha256: aacecf066fc44048661905dea6d548442e33e0dc17de9ddb5bb597d22ae9d87b
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -24,7 +24,7 @@ requirements:
     - python >=3.5
     - openjdk >=11
     - py4j >=0.10.7
-    
+
 
 test:
   imports:
