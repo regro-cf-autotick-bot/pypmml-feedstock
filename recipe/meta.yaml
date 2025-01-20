@@ -7,21 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pypmml-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pypmml-{{ version }}.tar.gz
   sha256: 7ce234c86495c525b69f39e29934f87ad895d2a92d194b312c28b7e1f9694479
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python {{ python_min }}
     - openjdk >=11
   run:
-    - python >=3.5
+    - python >={{ python_min }}
     - openjdk >=11
     - py4j >=0.10.7
     
@@ -34,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/autodeployai/pypmml
